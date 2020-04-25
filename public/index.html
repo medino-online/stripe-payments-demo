@@ -24,6 +24,12 @@
       <div id="payment-request">
         <div id="payment-request-button"></div>
       </div>
+
+      <label>
+      Please type in the shipping amount here. If you put zero you will see the bug I'm talking about where the shipping options are not updated.  
+      <input type="number" id="amountForShippingUpdate" style="height: 50px;border: 5px solid red;" value="0">
+      </label>
+
       <form id="payment-form" method="POST" action="/orders">
         <p class="instruction"><span>Complete</span>/<span id="generate">generate</span> your shipping and payment details below</p>
         <section>

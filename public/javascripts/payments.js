@@ -188,9 +188,14 @@
 
   // Callback when the shipping address is updated.
   paymentRequest.on('shippingaddresschange', event => {
+
+    let amount = parseInt(document.getElementById("amountForShippingUpdate").value);
     event.updateWith({status: 'success',
-                      shippingOption: [{id: "apple", label: "apple", detail: "macintosh", amount: 0},
-                                       {id: "banana", label: "banana", detail: "banananananaa", amount: 5}]});
+                       //
+                      //    Here's where things go bad!!! Try changing the amount to 1, and see that it works again.
+                     //
+                      shippingOptions: [{id: "apple", label: "apple", detail: "macintosh", amount: amount}
+                                        ]});
   });
 
   // Callback when the shipping option is changed.
