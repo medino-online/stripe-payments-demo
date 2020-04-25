@@ -146,7 +146,7 @@
     },
     requestShipping: true,
     requestPayerEmail: true,
-    shippingOptions: config.shippingOptions,
+    shippingOptions: [{id: "on_create", label: "create", detail: "shippingOption created when opened. Should be overridden later", amount: 0}],
   });
 
   // Callback when a payment method is created.
@@ -188,7 +188,9 @@
 
   // Callback when the shipping address is updated.
   paymentRequest.on('shippingaddresschange', event => {
-    event.updateWith({status: 'success'});
+    event.updateWith({status: 'success',
+                      shippingOption: [{id: "apple", label: "apple", detail: "macintosh", amount: 0},
+                                       {id: "banana", label: "banana", detail: "banananananaa", amount: 5}]});
   });
 
   // Callback when the shipping option is changed.
